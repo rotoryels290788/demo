@@ -38,7 +38,7 @@ public class Calculator {
             String[] arr = input.split(" ");
 
             if (arr.length > 3) {
-                System.out.println("ôîðìàò ìàòåìàòè÷åñêîé îïåðàöèè íå óäîâëåòâîðÿåò çàäàíèþ - äâà îïåðàíäà è îäèí îïåðàòîð (+, -, /, *).");
+                System.out.println("формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *).");
                 return input;
             }
             try {
@@ -52,7 +52,7 @@ public class Calculator {
                         int y = Integer.parseInt(z.getTranslation());
 
                         if (x < 1 || x > 10 || y < 1 || y > 10) {
-                            System.out.println("Îäíî èç èëè îáà ÷èñåëà áîëüøå X (10),ïîâòîðèòå ââîä ÷èñåë.");
+                            System.out.println("Одно из или оба чисела больше X (10),повторите ввод чисел.");
                             return input;
                         }
 
@@ -69,7 +69,7 @@ public class Calculator {
                                 System.out.println(Roman.values()[min - 1]);
                                 return input;
                             } catch (ArrayIndexOutOfBoundsException error1) {
-                                System.out.println("Â ðèìñêîé ñèñòåìå íåò íóëÿ è îòðèöàòåëüíûõ ÷èñåë,ïîâòîðèòå ââîä ÷èñåë.");
+                                System.out.println("В римской системе нет нуля и отрицательных чисел,повторите ввод чисел.");
                                 return input;
                             }
                         } else if (arr[1].equals(u)) {
@@ -79,16 +79,16 @@ public class Calculator {
                             System.out.println(Roman.values()[del - 1]);
                             return input;
                         } else {
-                            System.out.println("Çíàê àðèôìåòè÷åñêîãî äåéñòâèÿ ââåäåí íå êîðåêòíî,ïîâòîðèòå ââîä àðèôìåòè÷åñêîãî äåéñòâèÿ ÷åðåç ïðîáåë (I + II).");
+                            System.out.println("Знак арифметического действия введен не коректно,повторите ввод арифметического действия через пробел (I + II).");
                             return input;
                         }
                     }
                 }
             } catch (IllegalArgumentException error2) {
-                System.out.println("Âû ââåëè îäíîâðåìåííî ðàçíûå ñèñòåìû ñ÷èñëåíèÿ,ïîâòîðèòå ââîä ÷èñåë.");
+                System.out.println("Вы ввели одновременно разные системы счисления,повторите ввод чисел.");
                 return input;
             } catch (ArrayIndexOutOfBoundsException error3) {
-                System.out.println("Ââåäåííîå çíà÷åíèå íå ÿâëÿåòñÿ ìàòåìàòè÷åñêîé îïåðàöèåé,ïîâòîðèòå ââîä ÷èñåë.");
+                System.out.println("Введенное значение не является математической операцией,повторите ввод чисел.");
                 return input;
             }
 
@@ -97,7 +97,7 @@ public class Calculator {
                 int y = Integer.parseInt(arr[2]);
 
                 if (x < 1 || x > 10 || y < 1 || y > 10) {
-                    System.out.println("Ââåäåíîå ÷èñëî íå äîëæíî áûòü ìåíüøå 1 èëè áîëüøå 10,ïîâòîðèòå ââîä ÷èñåë (1 + 10).");
+                    System.out.println("Введеное число не должно быть меньше 1 или больше 10,повторите ввод чисел (1 + 10).");
                     return input;
                 }
 
@@ -111,18 +111,18 @@ public class Calculator {
                 } else if (arr[1].equals(d)) {
                     System.out.println(x / y);
                 } else {
-                    System.out.println("Çíàê àðèôìåòè÷åñêîãî äåéñòâèÿ ââåäåí íå êîðåêòíî,ïîâòîðèòå ââîä àðèôìåòè÷åñêîãî äåéñòâèÿ ÷åðåç ïðîáåë (2 + 2).");
+                    System.out.println("Знак арифметического действия введен не коректно,повторите ввод арифметического действия через пробел (2 + 2).");
                 }
 
             } catch (NumberFormatException error5) {
-                System.out.println("ñòðîêà íå ÿâëÿåòñÿ ìàòåìàòè÷åñêîé îïåðàöèåé,ïîâòîðèòå ââîä ÷èñåë.");
+                System.out.println("строка не является математической операцией,повторите ввод чисел.");
             }
             return input;
         }
 
         public static void main(String[] args) {
-            System.out.println("Âàñ ïðèâåòñòâóåò êàëüêóëÿòîð V 1.007.\nÊàëüêóëÿòîð ïðèíèìàåò íà âõîä àðàáñêèå è ðèìñêèå öèôðû.\nÂâåäåííûå öèôðû íå äîëæíû áûòü ìåíüøå 1 èëè áîëüøå 10(I èëè X).\nÂâåäåííûå ÷èñëà äîëæíû ââîäèòñÿ ÷åðåç ïðîáåë (1 + 1) ïðè íå ïðàâèëüíîì ââîäå ïîâòîðèòå ïîïûòêó.\nÊàëüêóëÿòîð óìååò ðàáîòàòü îäíîâðåìåííî òîëüêî ñ ðèìñêèìè èëè àðàáñêèìè öèôðàìè.\nÊàëüêóëÿòîð óìååò âûïîëíÿòü (+, -, /, *).\n");
-            System.out.println("Ââåäèòå àðåôìèòè÷åñêóþ îïåðàöèþ.");
+            System.out.println("Вас приветствует калькулятор V 1.007.\nКалькулятор принимает на вход арабские и римские цифры.\nВведенные цифры не должны быть меньше 1 или больше 10(I или X).\nВведенные числа должны вводится через пробел (1 + 1) при не правильном вводе повторите попытку.\nКалькулятор умеет работать одновременно только с римскими или арабскими цифрами.\nКалькулятор умеет выполнять (+, -, /, *).\n");
+            System.out.println("Введите арефмитическую операцию.");
             Scanner sc = new Scanner(System.in);
             calc(sc.nextLine());
 
@@ -134,7 +134,7 @@ public class Calculator {
 
 
 
-)
+
 
 
 
